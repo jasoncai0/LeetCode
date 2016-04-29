@@ -24,7 +24,11 @@ public class subTree {
         if(root1.val != root2.val) ret = judge(root1.left , root2)|| judge(root1.right , root2) ;
         else ret2 = contain(root1, root2);
         return ret||ret2;
+        //StringBuilder sb = new StringBuilder();
+        //sb.delete()
+        //Integer.parse
     }
+
     public static boolean contain(TreeNode root1  , TreeNode root2 ){
         if(root2 ==null ) return  true;
         if(root1 == null ) return  false;

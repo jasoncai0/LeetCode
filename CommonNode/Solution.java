@@ -27,6 +27,12 @@ public class Solution {
         return null;
     }
 
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
+
+
     public static void main(String[] args){
         int[]array = {9,3,2,5,1};
 

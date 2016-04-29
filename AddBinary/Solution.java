@@ -39,6 +39,12 @@ public class Solution {
     public static void main(String[]args){
         Solution s =new Solution();
         int a[] = {2};
+
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("abcde");
+        sb.delete(sb.length()-3 ,sb.length());
+        System.out.println(sb.toString());
         System.out.println(s.addBinary("111","11"));
     }
 }
