@@ -1,5 +1,7 @@
 package RestoreIPAddresses;
 
+import SearchforaRange.SOlution;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -8,7 +10,23 @@ import java.util.Set;
 /**
  * Created by zhensheng on 2016/4/29.
  */
+
+enum Size{
+    SMALL("S"),MEDIUM("M");
+    private String abbr;
+    Size(String s) {
+        this.abbr = s;
+
+    }
+    public String getAbbr(){
+        return this.abbr;
+    }
+}
 public class Solution {
+    Double d;
+    Size s = Size.MEDIUM;
+    Size m  = Enum.valueOf(Size.class,"SMALL");
+
     public List<String> restoreIpAddresses(String s) {
         Set<String> ret= new HashSet<>();
 

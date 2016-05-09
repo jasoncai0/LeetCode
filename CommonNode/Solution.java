@@ -33,6 +33,7 @@ public class Solution {
     }
 
 
+
     public static void main(String[] args){
         int[]array = {9,3,2,5,1};
 

@@ -5,7 +5,7 @@ package Alibaba;
  * Created by zhensheng on 2016/4/20.
  */
 
-class AliAccount{
+class AliAccount implements Cloneable{
     public static AliAccount alipay ;
 
     private int countID ;
@@ -29,6 +29,12 @@ class AliAccount{
     AliAccount(int c , double m){
         this.countID = c;
         this.money = m ;
+    }
+
+
+    @Override
+    protected AliAccount clone() throws CloneNotSupportedException {
+        return (AliAccount) super.clone();
     }
 }
 

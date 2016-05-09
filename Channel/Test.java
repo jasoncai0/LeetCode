@@ -43,11 +43,11 @@ public class Test {
 
         }
 
-
+        /*
         ServerSocketChannel ssc = ServerSocketChannel.open();
         Selector sc = Selector.open();
         ssc.register(sc, SelectionKey.OP_ACCEPT);
-
+        */
 
 
         aFile.close();
