@@ -1,8 +1,6 @@
 package LRU;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -64,13 +62,14 @@ public class LRUCache {
             return key;
         }
         else return -1 ;
-
     }
 
     public void set(int key, int value) {
 
     }
     public static void main(String[]args ){
+        int a[] = {1,2,3,4,5};
 
+        System.out.println(Arrays.asList(a));
     }
 }

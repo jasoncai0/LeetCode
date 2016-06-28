@@ -1,8 +1,8 @@
 package JDBC;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.logging.Logger;
 
 /**
@@ -21,6 +21,16 @@ public class Solution {
             connection  =  DriverManager.getConnection(url, user, password);
             if(!connection.isClosed())
                 System.out.println("SUCCESS!");
+            Statement stmt= connection.createStatement();
+            String update ="";
+            stmt.executeUpdate(update);
+            String query = "";
+            ResultSet resultSet = stmt.executeQuery(query);
+            while (resultSet.next()){
+                resultSet.getString("dddd");
+            }
+            connection.close();
+
         }catch(ClassNotFoundException e) {
             System.out.println("Sorry,cant't  find  the  Driver!!");
 
@@ -37,4 +47,5 @@ public class Solution {
         s.connectDatabase();
 
     }
+
 }

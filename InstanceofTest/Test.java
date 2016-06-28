@@ -1,15 +1,41 @@
 package InstanceofTest;
 
-import java.util.HashMap;
+import org.omg.CORBA.OBJECT_NOT_EXIST;
+
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Created by zhensheng on 2016/5/10.
  */
 class A{
     int val ;
+
+    public A(int val) {
+        this.val = val;
+    }
+
+    @Override
+    public String toString() {
+        return "A{" +
+                "val=" + val +
+                '}';
+    }
 }
 class B extends A{
-    int val2;
+
+
+    public B(int val) {
+        super(val);
+        //this.val2 = val2;
+    }
+
+    @Override
+    public String toString() {
+        return "B{" +
+                "val=" + super.val +
+                '}';
+    }
 }
 
 class Color {
@@ -106,10 +132,38 @@ class ColorPoint extends Point{
 }
 public class Test {
 
-    public static void main(String []args){
-        A a = new A();
-        B b= new B();
+    public static <E extends A> void  unsafe(List<E > list ,E o){
+        list.add(o);
+    }
 
+    /*
+    public static void  unsafe(List<Object > list ,Object o){
+        list.add(o);
+    }*/
+    public static void main(String []args){
+        ConcurrentHashMap chm;
+
+        A a = new A(1);
+        B b= new B(1);
+        List<Object> re = new ArrayList<>();
+        re.add("dddd");
+
+
+        for(Object r : re ){
+            System.out.println(r);
+        }
+        List<? super A> rx = new ArrayList<>();
+        rx.add(new B(2));
+        rx.add(new A(2));
+
+
+        for(Object r : rx ){
+            System.out.println(r);
+        }
+        //A xx= rx.get(0); //error!
+        //System.out.println(xx);
+
+        System.out.println((a instanceof Object));
         System.out.println((a instanceof A));
         System.out.println((a instanceof B));
         System.out.println((b instanceof A));
@@ -129,6 +183,16 @@ public class Test {
         p2.x= 3;
         System.out.println(p1.x);
 
+        List<A> ret= new LinkedList<>();
+        unsafe(ret , b);
+        ret.add(b);
+        for(A i :ret){
+            System.out.println(i);
+        }
+        List<Object> set = new ArrayList<>();
+        set.add("ddd");
+        set.add(1);
+        Set<?> set2 = new HashSet<>();
 
 
 
