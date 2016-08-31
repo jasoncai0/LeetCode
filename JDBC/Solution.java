@@ -22,13 +22,14 @@ public class Solution {
             if(!connection.isClosed())
                 System.out.println("SUCCESS!");
             Statement stmt= connection.createStatement();
-            String update ="";
+            String update ="insert into controller_flow_statistics(src_addr  , dst_addr, src_port,dst_port, prot,tos , input_id, pkts,octs, first_time,last_time , tcp_flags, drops,fin_type, time_stamp ) value(1,2,5,6,7,8,9,10,11,12,13,14,15,16,17);";
             stmt.executeUpdate(update);
+            /*
             String query = "";
             ResultSet resultSet = stmt.executeQuery(query);
             while (resultSet.next()){
                 resultSet.getString("dddd");
-            }
+            }**/
             connection.close();
 
         }catch(ClassNotFoundException e) {
